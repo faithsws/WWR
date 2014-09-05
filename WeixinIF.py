@@ -178,7 +178,7 @@ class WeixinIF:
 		
 		def __init__(self):
 			pass
-		def GET(self,cmdline):
+		def GET(self,cmdline=""):
 			wxToken = "sws"
 			data = web.input()
 			if len(data) == 0:
