@@ -4,7 +4,7 @@ import sys
 import Utils
 import web
 import WebIF
-import RouteIF
+import RouterIF
 web.config.debug = False;
 urls = (
 	"/WeixinInterface","WeixinIF.WeixinIF"
