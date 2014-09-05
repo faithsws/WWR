@@ -45,7 +45,7 @@ class SecondState(WeixinIF.State):
     def Process(self,plugin,text):
         return plugin.render.reply_SecondState(plugin,text,int(time.time()))
  
-    def Leave(self,ctx,text):
+    def Leave(self,plugin,text):
         return plugin.render.reply_SecondState(plugin,"leave "+text,int(time.time()))
 
 class ThirdState(WeixinIF.State):
