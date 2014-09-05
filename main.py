@@ -5,6 +5,7 @@ import Utils
 import web
 import WebIF
 import RouterIF
+import WeixinIF
 web.config.debug = False;
 urls = (
 	"/WeixinInterface","WeixinIF.WeixinIF"
@@ -16,4 +17,4 @@ if __name__ == "__main__":
 	webIf = WebIF.WebIF()
 	webIf.AppendToApp(app)
 
-	app.run()	
+	#app.run()	

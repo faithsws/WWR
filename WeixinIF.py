@@ -8,6 +8,11 @@ import sys
 import time
 import threading
 import copy
+import urllib2
+import json
+TOKEN="sws"
+APPID="e09b8bc600924e119b7e2ada7c9e732e"
+APPSECRET="9e5e255727fb4e33b958d648ac781ab3"
 class TextPlugin:
 	def __init__(self,xml,ctx):
 		self.xml = xml
@@ -73,7 +78,7 @@ class State:
 
 class EventPlugin:
 	def __init__(self,ctx):
-		self.processor = {"subscribe":self.OnSubscribe,"unsubscribe":self.OnUnsubscribe,"click":self.OnClick}
+		self.processor = {"subscribe":self.OnSubscribe,"unsubscribe":self.OnUnsubscribe,"click":self.OnClick,"LOCATION":self.OnLocation,"ENTER":self.OnLocation}
 		self.messages = {}
 		self.ctx = ctx
 	def Process(self,usr,event,key):
@@ -83,18 +88,20 @@ class EventPlugin:
 		else:
 			return "unknown event"
 	def OnSubscribe(self,usr,key):
-		return self.messages["subscribe"][key];
+		return self.messages["subscribe"][key]
 	def OnUnsubscribe(self,usr,key):
-		return self.messages["unsubscribe"][key];
+		return self.messages["unsubscribe"][key]
 	def OnClick(self,usr,key):
-		return self.messages["click"][key];
-
+		return self.messages["click"][key]
+	def OnLocation(self,usr,location):
+		print (usr,location)
 class WeixinContext:
 	def __init__(self):
 		self.textPlugins = {}	
 		threading.Timer(1.0,self.RemoveTimeoutPlugin).start()
 		self.eventPlugin = self.LoadEventPlugin()
-		pass
+		self.token = {"time":time.time(),"value":None}
+		self.GetAccessToken()
 	def LoadEventPlugin(self):
 		with open("WeixinPlugin"+os.sep+"config.xml") as f:
 			xml = f.read()
@@ -170,8 +177,23 @@ class WeixinContext:
 			del plugin
 		t = threading.Timer(1.0, self.RemoveTimeoutPlugin)
 		t.start()
-				
-				
+	def GetAccessToken(self):
+		print(self.token)
+		if self.token["value"] == None:
+			self.UpdateToken()			
+		if time.time() - self.token["time"] > 24*3600:
+			self.UpdateToken()
+		
+		print(self.token["value"])
+		return self.token["value"]
+	def UpdateToken(self):
+		opener = urllib2.build_opener(urllib2.HTTPHandler())
+		url = "https://api.yixin.im/cgi-bin/token?grant_type=client_credential&appid="+ APPID +"&secret="+APPSECRET
+		#req = urllib2.Request(url)
+		response = opener.open(url).read()
+		self.token['value'] = json.loads(response)["access_token"]
+		self.token["time"] = time.time()
+		
 ctx = WeixinContext()				
 		
 class WeixinIF:
@@ -179,7 +201,7 @@ class WeixinIF:
 		def __init__(self):
 			pass
 		def GET(self,cmdline=""):
-			wxToken = "sws"
+			wxToken = TOKEN
 			data = web.input()
 			if len(data) == 0:
 				return 
@@ -205,7 +227,11 @@ class WeixinIF:
 			if msgType == "text":
 				return ctx.ProcessText(fromUser,xml.find("Content").text)
 			elif msgType == "event":
-				return ctx.ProcessEvent(fromUser,xml.find("Event").text,xml.find("EventKey").text)
+				if xml.find("Event").text == 'LOCATION' or xml.find("Event").text == 'ENTER':
+					location = {"Latitude":xml.find("Latitude").text,"Longitude":xml.find("Latitude").text,"Precision":xml.find("Precision").text}
+					return ctx.ProcessEvent(fromUser,xml.find("Event").text,location)
+				else:
+					return ctx.ProcessEvent(fromUser,xml.find("Event").text,xml.find("EventKey").text)
 	
 
 
