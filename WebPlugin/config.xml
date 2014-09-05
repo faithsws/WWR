@@ -1,0 +1,6 @@
+<config>
+    <plugin module="WebPlugin.WebPlugin" >
+        <url path="/login" class="WebLogin" />
+    	<url path="/logout" class="WebLogout" />
+    </plugin>
+</config>

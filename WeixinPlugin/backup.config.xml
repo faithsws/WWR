@@ -1,0 +1,13 @@
+<config>
+<plugin target="text" class="TextPlugin"  >
+	<state name="Original" class="State" enterTip="enter InitState" >
+		<process inputText="hello" returnText="hello return" />
+		<process inputText="hello1" returnText="hello1 return"  />	
+	</state>
+</plugin>
+<plugin target="event" class="EventPlugin" >
+	<event name="subscribe" key="" return="Welcome" />
+	<event name="unsubscribe" key="" return="Sorry" />
+	<event name="click"	key="" return="click" />
+</plugin>
+</config>

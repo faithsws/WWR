@@ -1,0 +1,7 @@
+<config>
+
+		<RouteIF>
+		    <server port="8000" maxConnections="100" />
+		</RouteIF>
+
+</config>
