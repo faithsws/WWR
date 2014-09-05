@@ -7,10 +7,67 @@ import WeixinIF
 from lxml import etree
 import sys
 import os
+import web
+import time
 class WxTextPlugin(WeixinIF.TextPlugin):
-    def __init__(self,xml,ctx):
+    def __init__(self,xml,ctx,usr):
         WeixinIF.TextPlugin.__init__(self, xml, ctx)
-        self.cnt = 0
+        self.FromUser = usr
+        self.ToUser = ctx.openID
+        self.render = web.template.render('WeixinPlugin/templates')
+        
+       
+class InitState(WeixinIF.State):
+    def __init__(self,plugin,tips):
+        WeixinIF.State.__init__(self,plugin,tips)
+    def Enter(self,plugin,text):
+        return plugin.render.reply_InitState(plugin,"enter "+text,int(time.time()))
+    def Process(self,plugin,text):
+        return plugin.render.reply_InitState(plugin,text,int(time.time()))
+    def Leave(self,plugin,text):
+        return plugin.render.reply_InitState(plugin,"leave "+text,int(time.time()))
+
+class FirstState(WeixinIF.State):
+    def __init__(self,plugin,tips):
+        WeixinIF.State.__init__(self,plugin,tips)
+    def Enter(self,plugin,text):
+        return plugin.render.reply_FirstState(plugin,"enter "+text,int(time.time()))
+    def Process(self,plugin,text):
+        return plugin.render.reply_FirstState(plugin,text,int(time.time())) 
+    def Leave(self,plugin,text):
+        return plugin.render.reply_FirstState(plugin,"leave "+text,int(time.time()))
+        
+class SecondState(WeixinIF.State):
+    def __init__(self,plugin,tips):
+        WeixinIF.State.__init__(self,plugin,tips)
+    def Enter(self,plugin,text):
+        return plugin.render.reply_SecondState(plugin,"enter "+text,int(time.time()))
+    def Process(self,plugin,text):
+        return plugin.render.reply_SecondState(plugin,text,int(time.time()))
+ 
+    def Leave(self,ctx,text):
+        return plugin.render.reply_SecondState(plugin,"leave "+text,int(time.time()))
+
+class ThirdState(WeixinIF.State):
+    def __init__(self,plugin,tips):
+        WeixinIF.State.__init__(self,plugin,tips)
+    def Enter(self,plugin,text):
+        return plugin.render.reply_ThirdState(plugin,"enter "+text,int(time.time()))
+    def Process(self,plugin,text):
+        return plugin.render.reply_ThirdState(plugin,text,int(time.time()))
+    def Leave(self,plugin,text):
+        return plugin.render.reply_ThirdState(plugin,"leave "+text,int(time.time()))
+        
+class FourthState(WeixinIF.State):
+    def __init__(self,plugin,tips):
+        WeixinIF.State.__init__(self,plugin,tips)
+    def Enter(self,plugin,text):
+        return plugin.render.reply_FourthState(plugin,"enter "+text,int(time.time()))
+    def Process(self,plugin,text):
+        return plugin.render.reply_FourthState(plugin,text,int(time.time()))
+    def Leave(self,plugin,text):
+        return plugin.render.reply_FourthState(plugin,"leave "+text,int(time.time()))
+    
 class WxEventPlugin(WeixinIF.EventPlugin):
     def __init__(self,ctx):
         WeixinIF.EventPlugin.__init__(self, ctx)
@@ -21,58 +78,3 @@ class WxEventPlugin(WeixinIF.EventPlugin):
         return "self.messages['unsubscribe'][key]";
     def OnClick(self,usr,key):
         return "self.messages['click'][key]";
-       
-class InitState(WeixinIF.State):
-    def __init__(self,plugin,tips):
-        WeixinIF.State.__init__(self,plugin,tips)
-    def Enter(self,plugin,text):
-        return "Enter  InitState"
-    def Process(self,plugin,text):
-        return "process in InitState"
-    def Leave(self,plugin,text):
-        return "Leave  InitState"
-
-class FirstState(WeixinIF.State):
-    def __init__(self,plugin,tips):
-        WeixinIF.State.__init__(self,plugin,tips)
-    def Enter(self,plugin,text):
-        return self.tips["enter"]
-    def Process(self,plugin,text):
-        plugin.cnt = plugin.cnt + 1
-        return str(plugin.cnt) +" In FirstState " + text       
-    def Leave(self,plugin,text):
-        return("leave " + self.__class__.__name__)
-        
-class SecondState(WeixinIF.State):
-    def __init__(self,plugin,tips):
-        WeixinIF.State.__init__(self,plugin,tips)
-    def Enter(self,plugin,text):
-        return("enter " + self.__class__.__name__)
-    def Process(self,plugin,text):
-        plugin.cnt = plugin.cnt + 1
-        return str(plugin.cnt) +" In SecondState " + text
- 
-    def Leave(self,ctx,text):
-        return("leave " + self.__class__.__name__)
-
-class ThirdState(WeixinIF.State):
-    def __init__(self,plugin,tips):
-        WeixinIF.State.__init__(self,plugin,tips)
-    def Enter(self,plugin,text):
-        return("enter " + self.__class__.__name__)
-    def Process(self,plugin,text):
-        plugin.cnt = plugin.cnt + 1
-        return str(plugin.cnt) +" In ThirdState " + text
-    def Leave(self,plugin,text):
-        return("leave " + self.__class__.__name__)
-        
-class FourthState(WeixinIF.State):
-    def __init__(self,plugin,tips):
-        WeixinIF.State.__init__(self,plugin,tips)
-    def Enter(self,plugin,text):
-        return("enter " + self.__class__.__name__)
-    def Process(self,plugin,text):
-        plugin.cnt = plugin.cnt + 1
-        return str(plugin.cnt) +" In FourthState " + text  
-    def Leave(self,plugin,text):
-        return("leave " + self.__class__.__name__)

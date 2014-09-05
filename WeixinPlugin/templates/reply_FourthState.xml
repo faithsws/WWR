@@ -1,0 +1,9 @@
+$def with(plugin,text,time)
+
+<xml>
+  <ToUserName><![CDATA[$plugin.FromUser]]></ToUserName>
+  <FromUserName><![CDATA[$plugin.ToUser]]></FromUserName>
+  <CreateTime>$time</CreateTime>
+  <MsgType><![CDATA[text]]></MsgType>
+  <Content><![CDATA[fourth $text]]></Content>
+</xml>

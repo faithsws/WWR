@@ -102,6 +102,7 @@ class WeixinContext:
 		self.eventPlugin = self.LoadEventPlugin()
 		self.token = {"time":time.time(),"value":None}
 		self.GetAccessToken()
+		self.openID = ""
 	def LoadEventPlugin(self):
 		with open("WeixinPlugin"+os.sep+"config.xml") as f:
 			xml = f.read()
@@ -130,7 +131,7 @@ class WeixinContext:
 							clsentry.messages[name][event.get("key")] = event.get("return")
 					
 					return 	clsentry	
-	def LoadTextPlugin(self):
+	def LoadTextPlugin(self,usr):
 		with open("WeixinPlugin"+os.sep+"config.xml") as f:
 			xml = f.read()
 			dom = etree.fromstring(xml)
@@ -147,12 +148,12 @@ class WeixinContext:
 					
 					cls = getattr(mod,clsname)
 					timeout = int(plugin.get("timeoutToReset","-1"))
-					return 	{'class':cls(plugin,self),'timeout':timeout,"time":time.time()}	
+					return 	{'class':cls(plugin,self,usr),'timeout':timeout,"time":time.time()}	
 		#return plugins
 	def ProcessText(self,usr,text):
 		if not usr in self.textPlugins:
 			print("loadplugins")
-			self.textPlugins[usr] = self.LoadTextPlugin()
+			self.textPlugins[usr] = self.LoadTextPlugin(usr)
 			#return self.usrPlugins[usr]["class"].Process(text)
 		else:
 			self.textPlugins[usr]["time"] = time.time()
@@ -222,6 +223,7 @@ class WeixinIF:
 			xml = etree.fromstring(str_xml)
 			fromUser = xml.find("FromUserName").text
 			toUser = xml.find("ToUserName").text
+			ctx.openID = toUser
 			msgType = xml.find("MsgType").text
 			
 			if msgType == "text":
