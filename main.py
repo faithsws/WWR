@@ -17,4 +17,4 @@ if __name__ == "__main__":
 	webIf = WebIF.WebIF()
 	webIf.AppendToApp(app)
 
-	#app.run()	
+	app.run()	

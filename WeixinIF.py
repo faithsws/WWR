@@ -218,7 +218,7 @@ class WeixinIF:
 				return echostr
 		def POST(self,cmdline = ""):
 			str_xml = web.data()
-			#print(str_xml)
+			print(str_xml)
 			xml = etree.fromstring(str_xml)
 			fromUser = xml.find("FromUserName").text
 			toUser = xml.find("ToUserName").text
