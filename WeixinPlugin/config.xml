@@ -1,14 +1,12 @@
 <config>
 <plugin target="text" class="WeixinPlugin.WeixinPlugin.WxTextPlugin" timeoutToReset="60" >
 	<state name="Original" class="InitState" enterTips="enter InitState" >
-		<action inputText="gotoState1" targetState="State1" />
+		<action inputText="tts" targetState="TTSState" />
 		<action inputText="gotoState2" targetState="State2" />
 	</state>
 
-	<state name="State1" class="FirstState" enterTips="enter FirstState" >
-		<action inputText="gotoState2" targetState="State2" />
-		<action inputText="gotoState3" targetState="State3" />
-		<action inputText="gotoState4" targetState="State4" />
+	<state name="TTSState" class="TTSState" enterTips="enter FirstState" >
+		<action inputText="ttsEnd" targetState="Original" />
 	</state>
 	
 	<state name="State2" class="SecondState" enterTips="" >

@@ -9,6 +9,7 @@ import sys
 import os
 import web
 import time
+import tts
 class WxTextPlugin(WeixinIF.TextPlugin):
     def __init__(self,xml,ctx,usr):
         WeixinIF.TextPlugin.__init__(self, xml, ctx)
@@ -27,13 +28,14 @@ class InitState(WeixinIF.State):
     def Leave(self,plugin,text):
         return plugin.render.reply_InitState(plugin,"leave "+text,int(time.time()))
 
-class FirstState(WeixinIF.State):
+class TTSState(WeixinIF.State):
     def __init__(self,plugin,tips):
         WeixinIF.State.__init__(self,plugin,tips)
     def Enter(self,plugin,text):
         return plugin.render.reply_FirstState(plugin,"enter "+text,int(time.time()))
     def Process(self,plugin,text):
-        return plugin.render.reply_FirstState(plugin,text,int(time.time())) 
+        file = tts.GetAac(text)
+        return plugin.render.reply_FirstState(plugin,file,int(time.time())) 
     def Leave(self,plugin,text):
         return plugin.render.reply_FirstState(plugin,"leave "+text,int(time.time()))
         
