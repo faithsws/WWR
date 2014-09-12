@@ -2,3 +2,6 @@
 *.project
 *.pydevproject
 .settings
+*.mp3
+*.wav
+*.aac

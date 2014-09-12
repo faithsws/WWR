@@ -1,0 +1,13 @@
+$def with(plugin,text,url,time)
+
+<xml>
+  <ToUserName><![CDATA[$plugin.FromUser]]></ToUserName>
+  <FromUserName><![CDATA[$plugin.ToUser]]></FromUserName>
+  <CreateTime>$time</CreateTime>
+  <MsgType><![CDATA[music]]></MsgType>
+  <Music>
+  <Description><![CDATA[$text]]></Description>
+  <MusicUrl><![CDATA[$url]]></MusicUrl>
+  <HQMusicUrl></HQMusicUrl>
+  </Music>
+</xml>

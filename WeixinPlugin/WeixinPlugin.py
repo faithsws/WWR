@@ -32,10 +32,13 @@ class TTSState(WeixinIF.State):
     def __init__(self,plugin,tips):
         WeixinIF.State.__init__(self,plugin,tips)
     def Enter(self,plugin,text):
-        return plugin.render.reply_FirstState(plugin,"enter "+text,int(time.time()))
+        return plugin.render.reply_FirstState(plugin,"enter "+text + " Mode",int(time.time()))
     def Process(self,plugin,text):
         file = tts.GetAac(text)
-        return plugin.render.reply_FirstState(plugin,file,int(time.time())) 
+        #xml = plugin.render.reply_TTS(plugin,text,"http://mc.faithsws.com/aac/"+file,int(time.time())) 
+	#print(xml)
+	#return xml
+        return plugin.render.reply_FirstState(plugin,file,int(time.time()))
     def Leave(self,plugin,text):
         return plugin.render.reply_FirstState(plugin,"leave "+text,int(time.time()))
         
