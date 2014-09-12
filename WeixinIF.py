@@ -227,6 +227,7 @@ class WeixinIF:
 			msgType = xml.find("MsgType").text
 			
 			if msgType == "text":
+				print(repr(xml.find("Content").text))
 				return ctx.ProcessText(fromUser,xml.find("Content").text)
 			elif msgType == "event":
 				if xml.find("Event").text == 'LOCATION' or xml.find("Event").text == 'ENTER':
