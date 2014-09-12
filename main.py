@@ -31,4 +31,5 @@ if __name__ == "__main__":
 	if'win32' == sys.platform:
 		print(app.request("/WeixinInterface",method="POST",data=text))
 	else:
+		print(app.mapping)
 		app.run()	

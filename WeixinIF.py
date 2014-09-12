@@ -101,7 +101,7 @@ class WeixinContext:
 		threading.Timer(1.0,self.RemoveTimeoutPlugin).start()
 		self.eventPlugin = self.LoadEventPlugin()
 		self.token = {"time":time.time(),"value":None}
-		self.GetAccessToken()
+		#self.GetAccessToken()
 		self.openID = ""
 	def LoadEventPlugin(self):
 		with open("WeixinPlugin"+os.sep+"config.xml") as f:
