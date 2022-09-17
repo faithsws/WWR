@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-17T08:34:27.022Z" agent="5.0 (Windows)" etag="tBNK8NCeIb80M1SdXf11" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-17T08:37:36.999Z" agent="5.0 (Windows)" etag="ndLuUk0hgWQcoV6JWQEP" version="17.4.0" type="github">
   <diagram id="PEAYM2TSW36eEWYKZnlZ" name="第 1 页">
     <mxGraphModel dx="1422" dy="711" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -29,10 +29,13 @@
           <mxGeometry x="75" y="235" width="230" height="60" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-13" value="socket" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
-          <mxGeometry x="395" y="235" width="120" height="45" as="geometry" />
+          <mxGeometry x="390" y="235" width="135" height="45" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-15" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.25,0],[0.75,0],[1,0.25],[1,0.75],[0.75,1],[0.25,1],[0,0.75],[0,0.25]];polyline=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
           <mxGeometry x="420" y="295" width="70" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="nEnTxpcwxUe-emIPofCH-1" source="nEnTxpcwxUe-emIPofCH-19" target="nEnTxpcwxUe-emIPofCH-25">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-19" value="CANOpen Library" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
           <mxGeometry x="75" y="170" width="225" height="45" as="geometry" />
@@ -43,8 +46,11 @@
             <mxPoint x="290" y="215" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.842;entryY=1.055;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="nEnTxpcwxUe-emIPofCH-1" source="nEnTxpcwxUe-emIPofCH-24" target="nEnTxpcwxUe-emIPofCH-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-24" value="MQTT Library" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
-          <mxGeometry x="390" y="170" width="140" height="45" as="geometry" />
+          <mxGeometry x="390" y="170" width="135" height="45" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-25" value="Logic Control" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
           <mxGeometry x="75" y="85" width="455" height="55" as="geometry" />
@@ -52,16 +58,22 @@
         <mxCell id="nEnTxpcwxUe-emIPofCH-16" value="&lt;div&gt;Net Card&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
           <mxGeometry x="430" y="302.5" width="60" height="20" as="geometry" />
         </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-30" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="nEnTxpcwxUe-emIPofCH-1" source="nEnTxpcwxUe-emIPofCH-13" target="nEnTxpcwxUe-emIPofCH-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="235" as="sourcePoint" />
+            <mxPoint x="290" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nEnTxpcwxUe-emIPofCH-2" target="nEnTxpcwxUe-emIPofCH-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-2" value="LTE Modem" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
           <mxGeometry x="545" y="630" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="nEnTxpcwxUe-emIPofCH-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="nEnTxpcwxUe-emIPofCH-3" target="nEnTxpcwxUe-emIPofCH-7">
+        <mxCell id="nEnTxpcwxUe-emIPofCH-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="nEnTxpcwxUe-emIPofCH-3" target="nEnTxpcwxUe-emIPofCH-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="nEnTxpcwxUe-emIPofCH-3" value="&lt;div&gt;USB Can Converter&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+        <mxCell id="nEnTxpcwxUe-emIPofCH-3" value="&lt;div&gt;USB CAN Converter&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
           <mxGeometry x="205" y="630" width="270" height="60" as="geometry" />
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-4" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="nEnTxpcwxUe-emIPofCH-1" target="nEnTxpcwxUe-emIPofCH-1">
@@ -69,6 +81,21 @@
             <mxPoint x="390" y="450" as="sourcePoint" />
             <mxPoint x="440" y="400" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-33" value="VVVF" style="swimlane;strokeWidth=5;" vertex="1" parent="1">
+          <mxGeometry x="240" y="740" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="nEnTxpcwxUe-emIPofCH-34" target="nEnTxpcwxUe-emIPofCH-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-34" value="" style="shape=doubleArrow;whiteSpace=wrap;html=1;strokeWidth=5;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="320" y="700" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-36" value="CLOUD" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;strokeWidth=5;" vertex="1" parent="1">
+          <mxGeometry x="550" y="730" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nEnTxpcwxUe-emIPofCH-37" value="" style="shape=doubleArrow;whiteSpace=wrap;html=1;strokeWidth=5;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="585" y="700" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
