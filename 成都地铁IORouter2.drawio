@@ -1,11 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2022-09-17T08:38:16.444Z" agent="5.0 (Windows)" etag="eLVtHZNgar5M-zLxT74o" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-17T08:42:47.082Z" agent="5.0 (Windows)" etag="_cFTKPr7GkBEgrFrwC_a" version="17.4.0" type="github">
   <diagram id="PEAYM2TSW36eEWYKZnlZ" name="第 1 页">
     <mxGraphModel dx="1422" dy="711" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="nEnTxpcwxUe-emIPofCH-1" value="IORouter2 Linux OS" style="swimlane;startSize=23;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=5;" vertex="1" parent="1">
-          <mxGeometry x="150" y="185" width="580" height="415" as="geometry" />
+          <mxGeometry x="150" y="185" width="580" height="415" as="geometry">
+            <mxRectangle x="150" y="185" width="140" height="23" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="nEnTxpcwxUe-emIPofCH-5" value="Kernel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="nEnTxpcwxUe-emIPofCH-1">
           <mxGeometry x="10" y="315" width="50" height="20" as="geometry" />
